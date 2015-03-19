@@ -1,4 +1,4 @@
-package org.guidowb.chores.domain;
+package org.guidowb.chores.security;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;

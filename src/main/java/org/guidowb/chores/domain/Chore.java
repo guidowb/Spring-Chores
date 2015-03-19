@@ -12,6 +12,6 @@ public class Chore {
     @Id
     @Column(length=40)
     @GeneratedValue(generator="randomId")
-    @GenericGenerator(name="randomId", strategy="org.guidowb.chores.domain.RandomIdGenerator")
+    @GenericGenerator(name="randomId", strategy="org.guidowb.chores.security.RandomIdGenerator")
     private String id;
 }
