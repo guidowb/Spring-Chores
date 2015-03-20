@@ -78,7 +78,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     		.httpBasic().and()
     		.csrf().csrfTokenRepository(csrfTokenRepository()).and()
     		.authorizeRequests()
-    			.antMatchers("/", "/css/**", "/js/**", "/webjars/**", "/partials/**").permitAll()
+    			.antMatchers("/").permitAll()
+    			.antMatchers("/js/**").permitAll()
+    			.antMatchers("/css/**").permitAll()
+    			.antMatchers("/webjars/**").permitAll()
+    			.antMatchers("/partials/**").permitAll()
     			.anyRequest().authenticated();
     }
 }
