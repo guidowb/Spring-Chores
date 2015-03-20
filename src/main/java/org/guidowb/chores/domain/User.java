@@ -1,20 +1,15 @@
-package org.guidowb.chores.security;
+package org.guidowb.chores.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.guidowb.chores.security.Password;
 
 @Entity
 public class User {
-    @Id
-    @Column(length=40)
-    @GeneratedValue(generator="randomId")
-    @GenericGenerator(name="randomId", strategy="org.guidowb.chores.security.RandomIdGenerator")
-    private String id;
 
+    private @Id @GeneratedValue String id;
     private String username = null;
 	private String password = null;
 

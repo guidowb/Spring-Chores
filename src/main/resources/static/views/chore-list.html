@@ -1,9 +1,19 @@
 <ul class="list-group">
 	<li class="list-group-item" ng-repeat="chore in chores">
-		<span>{{chore.chorename}}</span>
+   		<span class="glyphicon glyphicon-unchecked"></span>
+   		<span class="glyphicon glyphicon-check"></span>
+   		<span class="glyphicon glyphicon-pencil"></span>
+   		<span class="glyphicon glyphicon-thumbs-down"></span>
+   		<span class="glyphicon glyphicon-thumbs-up"></span>
+		<div class="chore-description">
+			<h1 class="chore-name">{{chore.name}}</h1>
+			<span class="chore-description">{{chore.description}}</span>
+			<span class="chore-assigned-to">{{chore.assigned_to}}</span>
+		</div>
+   		<div style="clear: both"></div>
 	</li>
 	<li class="list-group-item" ng-click="addChore()">
 		<span class="glyphicon glyphicon-plus"></span>
-		Add User...
+		Add Chore...
 	</li>
 </ul>
