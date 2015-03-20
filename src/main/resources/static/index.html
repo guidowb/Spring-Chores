@@ -9,7 +9,7 @@
 	<div ng-controller="sessionController" class="container">
 		<div ng-show="authenticated"><a href="" ng-click="logout()">Logout</a></div>
 		<div ui-view ng-show="authenticated">Home</div>
-		<div ng-show="!authenticated" ng-include="'partials/login.html'">Login</div>
+		<div ng-show="!authenticated" ng-include="'views/login.html'">Login</div>
 	</div>
 
     <script src="webjars/jquery/2.1.0/jquery.min.js"></script>

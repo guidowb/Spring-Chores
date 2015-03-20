@@ -12,7 +12,7 @@ choresApp.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
 		$stateProvider
 			.state('default', {
 				url: '/',
-				templateUrl: 'partials/chorelist.html',
+				templateUrl: 'views/chore-list.html',
 				controller: 'choreListController'
 			});
 		$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
