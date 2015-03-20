@@ -3,6 +3,8 @@ package org.guidowb.chores.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.guidowb.chores.domain.User;
+import org.guidowb.chores.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

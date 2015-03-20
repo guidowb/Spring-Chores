@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class SessionController {
 
 	@RequestMapping(method=RequestMethod.POST)
-	public void login() {}
+	public void login(HttpServletRequest request) throws ServletException {
+		BasicAuthentication auth = BasicAuthentication.getAuthentication(request);
+		request.login(auth.getUsername(), auth.getPassword());
+	}
 
 	@RequestMapping(method=RequestMethod.DELETE)
 	public void logout(HttpServletRequest request) throws ServletException {
