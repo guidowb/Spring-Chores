@@ -11,6 +11,10 @@ public class Chore {
     private String name;
     private String description;
 
+    public long getId() {
+    	return id;
+    }
+
 	public String getName() {
 		return name;
 	}

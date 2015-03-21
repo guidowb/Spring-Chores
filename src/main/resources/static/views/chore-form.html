@@ -1,0 +1,56 @@
+<form name="form" novalidate>
+	<div class="modal-header">
+		<h3 class="modal-title" ng-show="!chore.id">New Chore</h3>
+		<h3 class="modal-title" ng-show="chore.id">Edit Chore - {{chore.name}}</h3>
+	</div>
+	<div class="modal-body">
+   		<div class="form-group">
+   			<label for="name">Chore Name</label>
+   			<input class="form-control" ng-model="chore.name" placeholder="Enter short name"/>
+   		</div>
+   		<div class="form-group">
+   			<label for="description">Description</label>
+   			<textarea class="form-control" ng-model="description" placeholder="Describe the chore in detail"></textarea>
+   		</div>
+   		<div class="form-group">
+    		<label for="assigned-to">Assigned To</label>
+   			<div class="input-group assigned-to">
+   				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+    			<ul class="dropdown-menu user-dropdown" role="menu">
+    				<li ng-repeat="user in users"><a href="">{{user.username}}</a></li>
+    				<li class="unassigned"><a href="">Unassigned</a></li>
+    			</ul>
+   				<input type="text" class="form-control dropdown-toggle" ng-model="assigned_to" data-toggle="dropdown" placeholder="Unassigned" readonly>
+			</div>
+		</div>
+   		<div class="form-group">
+   			<label for="description">Next Due</label>
+   			<div class="input-group due-date">
+   				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+   				<input type="text" ng-model="next_due" class="form-control" placeholder="Never" readonly>
+   				<span class="input-group-btn">
+					<button class="btn btn-default due-never"><span class="glyphicon glyphicon-ban-circle"></span></button>
+					<button class="btn btn-default due-plus-day">+ Day</button>
+					<button class="btn btn-default due-plus-week">+ Week</button>
+				</span>
+			</div>
+   		</div>
+   		<div class=form_group>
+   			<label>Repeat Every</label>
+   			<div class="btn-group btn-group-justified next-due-days">
+   				<a class="btn btn-default" ng-repeat="day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] track by $index" ng-class="{active:chore.due_days[$index],'btn-primary':chore.due_days[$index]}" ng-click="toggle_day($index)">{{day}}</a>
+  			</div>
+   		</div>
+	</div>
+	<div class="modal-footer">
+		<div style="float: left" ng-show="chore.id">
+	   		<button class="delete-chore btn btn-danger">Delete</button>
+	   		<button class="delete-confirm btn btn-danger right disabled">Confirm Delete</button>
+	   	</div>
+		<div style="float: right">
+			<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+			<button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok()" ng-show="!chore.id">Add Chore</button>
+			<button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok()" ng-show="chore.id">Save</button>
+		</div>
+	</div>
+</form>

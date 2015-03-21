@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/chores.css">
 </head>
-<body ng-app="choresApp">
+<body ng-app="choreApp">
 	<div ng-controller="sessionController" class="container">
 		<div ng-show="authenticated"><a href="" ng-click="logout()">Logout</a></div>
 		<div ui-view ng-show="authenticated">Home</div>
@@ -17,10 +17,12 @@
     <script src="webjars/angularjs/1.2.16/angular.min.js"></script>
     <script src="webjars/angular-ui/0.4.0/angular-ui.min.js"></script>
     <script src="webjars/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
+    <script src="webjars/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
     <script src="webjars/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
 
-    <script src="js/choresApp.js"></script>
-    <script src="js/sessionController.js"></script>
-    <script src="js/choreListController.js"></script>
+    <script src="js/chore-app.js"></script>
+    <script src="js/session-controller.js"></script>
+    <script src="js/chore-list-controller.js"></script>
+    <script src="js/chore-form-controller.js"></script>
 </body>
 </html>

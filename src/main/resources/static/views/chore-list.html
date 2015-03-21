@@ -1,10 +1,10 @@
-<ul class="list-group">
+<ul class="list-group chore-list">
 	<li class="list-group-item" ng-repeat="chore in chores">
-   		<span class="glyphicon glyphicon-unchecked"></span>
-   		<span class="glyphicon glyphicon-check"></span>
-   		<span class="glyphicon glyphicon-pencil"></span>
-   		<span class="glyphicon glyphicon-thumbs-down"></span>
-   		<span class="glyphicon glyphicon-thumbs-up"></span>
+   		<span class="chore-unchecked glyphicon glyphicon-unchecked" ng-show="!chore.checked"></span>
+   		<span class="chore-checked glyphicon glyphicon-check" ng-show="chore.checked"></span>
+   		<span class="chore-edit glyphicon glyphicon-pencil" ng-click="editChore(chore.id)"></span>
+   		<span class="chore-thumbs-down glyphicon glyphicon-thumbs-down" ng-show="chore.rejected"></span>
+   		<span class="chore-thumbs-up glyphicon glyphicon-thumbs-up" ng-show="!chore.rejected" ng-class="{active:chore.approved}"></span>
 		<div class="chore-description">
 			<h1 class="chore-name">{{chore.name}}</h1>
 			<span class="chore-description">{{chore.description}}</span>
@@ -13,7 +13,9 @@
    		<div style="clear: both"></div>
 	</li>
 	<li class="list-group-item" ng-click="addChore()">
-		<span class="glyphicon glyphicon-plus"></span>
-		Add Chore...
+		<span class="chore-plus glyphicon glyphicon-plus"></span>
+		<div class="new-chore chore-description">
+			<h1 class="chore-name">Add Chore...</h1>
+		</div>
 	</li>
 </ul>

@@ -1,22 +1,22 @@
-var choresApp = angular.module('choresApp',
+var choreApp = angular.module('choreApp',
 	[
 	 	'ui.router',
 	 	'ui.bootstrap',
-	 	'choresControllers'
+	 	'choreControllers'
 	]
 );
 
-choresApp.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
+choreApp.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
     function($httpProvider, $stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
 			.state('default', {
 				url: '/',
 				templateUrl: 'views/chore-list.html',
-				controller: 'choreListController'
+				controller: 'chorelistController'
 			});
 		$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 	}
 ]);
 
-choresControllers = angular.module('choresControllers', []);
+choreControllers = angular.module('choreControllers', []);

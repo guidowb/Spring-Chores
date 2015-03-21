@@ -1,4 +1,4 @@
-choresControllers.controller('sessionController', ['$scope', '$http', '$window',
+choreControllers.controller('sessionController', ['$scope', '$http', '$window',
 	function ($scope, $http, $window) {
 	
 		$scope.login = function() {
