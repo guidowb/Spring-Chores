@@ -42,7 +42,7 @@
 	float: left;
 	margin: 5px 10px 5px 10px;
 	width: 20px;
-	color: #cccccc;
+	color: #888888;
 }
 
 .chore-list li span.chore-checked {
@@ -56,14 +56,14 @@
 	display: table-cell;
 	float: right;
 	margin: 5px 10px 5px 10px;
-	color: #cccccc;
+	color: #888888;
 }
 
 .chore-list li span.chore-thumbs-up:not(.active) {
 	display: table-cell;
 	float: right;
 	margin: 5px 2px 5px 10px;
-	color: #cccccc;
+	color: #888888;
 }
 
 .chore-list li span.chore-thumbs-up.active {
@@ -85,8 +85,9 @@
 	float: left;
 	margin: 5px 10px 5px 10px;
 	width: 20px;
+	color: #888888;
 }
 
 .chore-list li.new-chore {
-	text-align: center;
+	color: #888888;
 }

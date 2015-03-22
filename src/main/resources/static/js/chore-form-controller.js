@@ -2,17 +2,40 @@ choreControllers.controller('choreformController', ['$scope', '$http', '$modalIn
 	function ($scope, $http, $dialog, choreId) {
 	
 		$scope.ok = function() {
-			$http.post('/chores', $scope.chore).success(function(data) {
-				$dialog.close($scope.chore);
-			});
+			if (choreId) {
+				$http.put('/chores/' + choreId, $scope.chore).success(function(data) {
+					$dialog.close($scope.chore);
+				});
+			}
+			else {
+				$http.post('/chores', $scope.chore).success(function(data) {
+					$dialog.close($scope.chore);
+				});
+			}
 		}
 		
 		$scope.cancel = function() {
 			$dialog.dismiss('cancel');
 		}
 		
+		$scope.delete_start = function() {
+			$scope.deleting = true;
+			angular.element('.delete-confirm').focus();
+		}
+		
+		$scope.delete_cancel = function() {
+			$scope.deleting = false;
+		}
+		
+		$scope.delete_confirm = function() {
+			$http.delete('/chores/' + choreId, $scope.chore).success(function(data) {
+				$scope.chore = undefined;
+				$dialog.close(undefined);
+			});
+		}
+
 		$scope.toggle_day = function(index) {
-			$scope.chore.due_days[index] = !$scope.chore.due_days[index];
+			$scope.chore.dueDays[index] = !$scope.chore.dueDays[index];
 		}
 		
 		$scope.get = function(choreId) {
@@ -23,7 +46,7 @@ choreControllers.controller('choreformController', ['$scope', '$http', '$modalIn
 
 		$scope.init = function() {
 			if ($scope.chore) return;
-			$scope.chore = { due_days: [] };
+			$scope.chore = { dueDays: [] };
 		}
 
 		if (choreId) $scope.get(choreId);

@@ -7,12 +7,12 @@
    		<span class="chore-thumbs-up glyphicon glyphicon-thumbs-up" ng-show="!chore.rejected" ng-class="{active:chore.approved}"></span>
 		<div class="chore-description">
 			<h1 class="chore-name">{{chore.name}}</h1>
-			<span class="chore-description">{{chore.description}}</span>
-			<span class="chore-assigned-to">{{chore.assigned_to}}</span>
+			<span class="chore-description" ng-show="chore.description">{{chore.description}}</span>
+			<span class="chore-assigned-to" ng-show="chore.assignedTo">{{chore.assignedTo}}</span>
 		</div>
    		<div style="clear: both"></div>
 	</li>
-	<li class="list-group-item" ng-click="addChore()">
+	<li class="new-chore list-group-item" ng-click="addChore()">
 		<span class="chore-plus glyphicon glyphicon-plus"></span>
 		<div class="new-chore chore-description">
 			<h1 class="chore-name">Add Chore...</h1>

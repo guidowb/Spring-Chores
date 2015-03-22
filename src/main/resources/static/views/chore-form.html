@@ -20,7 +20,7 @@
     				<li ng-repeat="user in users"><a href="">{{user.username}}</a></li>
     				<li class="unassigned"><a href="">Unassigned</a></li>
     			</ul>
-   				<input type="text" class="form-control dropdown-toggle" ng-model="assigned_to" data-toggle="dropdown" placeholder="Unassigned" readonly>
+   				<input type="text" class="form-control dropdown-toggle" ng-model="assignedTo" data-toggle="dropdown" placeholder="Unassigned" readonly>
 			</div>
 		</div>
    		<div class="form-group">
@@ -38,14 +38,14 @@
    		<div class=form_group>
    			<label>Repeat Every</label>
    			<div class="btn-group btn-group-justified next-due-days">
-   				<a class="btn btn-default" ng-repeat="day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] track by $index" ng-class="{active:chore.due_days[$index],'btn-primary':chore.due_days[$index]}" ng-click="toggle_day($index)">{{day}}</a>
+   				<a class="btn btn-default" ng-repeat="day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] track by $index" ng-class="{active:chore.dueDays[$index],'btn-primary':chore.dueDays[$index]}" ng-click="toggle_day($index)">{{day}}</a>
   			</div>
    		</div>
 	</div>
 	<div class="modal-footer">
 		<div style="float: left" ng-show="chore.id">
-	   		<button class="delete-chore btn btn-danger">Delete</button>
-	   		<button class="delete-confirm btn btn-danger right disabled">Confirm Delete</button>
+	   		<button class="delete-chore btn btn-danger" ng-click="delete_start()">Delete</button>
+	   		<button class="delete-confirm btn btn-danger right" ng-class="{disabled: !deleting}" ng-click="delete_confirm()" ng-blur="delete_cancel()">Confirm Delete</button>
 	   	</div>
 		<div style="float: right">
 			<button class="btn btn-default" ng-click="cancel()">Cancel</button>
