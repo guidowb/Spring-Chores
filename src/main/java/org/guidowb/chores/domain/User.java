@@ -9,9 +9,13 @@ import org.guidowb.chores.security.Password;
 @Entity
 public class User {
 
-    private @Id @GeneratedValue String id;
+    private @Id @GeneratedValue long id;
     private String username = null;
 	private String password = null;
+
+	public long getId() {
+		return id;
+	}
 
 	public void setUsername(String username) {
 		this.username = username;

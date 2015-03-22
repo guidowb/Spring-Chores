@@ -6,7 +6,7 @@
 	<div class="modal-body">
    		<div class="form-group">
    			<label for="name">Chore Name</label>
-   			<input class="form-control" ng-model="chore.name" placeholder="Enter short name"/>
+   			<input class="form-control" ng-model="chore.name" placeholder="Enter short name" required/>
    		</div>
    		<div class="form-group">
    			<label for="description">Description</label>
@@ -27,7 +27,7 @@
    			<label for="description">Next Due</label>
    			<div class="input-group due-date">
    				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-   				<input type="text" ng-model="next_due" class="form-control" placeholder="Never" readonly>
+   				<input type="text" ng-model="nextDue" class="form-control" placeholder="Never" readonly>
    				<span class="input-group-btn">
 					<button class="btn btn-default due-never"><span class="glyphicon glyphicon-ban-circle"></span></button>
 					<button class="btn btn-default due-plus-day">+ Day</button>

@@ -35,18 +35,21 @@ choreControllers.controller('choreformController', ['$scope', '$http', '$modalIn
 		}
 
 		$scope.toggle_day = function(index) {
+			if (!$scope.chore.dueDays) $scope.chore.dueDays = [];
 			$scope.chore.dueDays[index] = !$scope.chore.dueDays[index];
 		}
 		
 		$scope.get = function(choreId) {
 			$http.get('/chores/' + choreId).success(function(data) {
 				$scope.chore = data;
+			}).error(function(data) {
+				$dialog.dismiss('error');
 			});
 		}
 
 		$scope.init = function() {
 			if ($scope.chore) return;
-			$scope.chore = { dueDays: [] };
+			$scope.chore = {};
 		}
 
 		if (choreId) $scope.get(choreId);
