@@ -4,9 +4,11 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.eriwen:gradle-js-plugin:1.12.1")
     }
 }
 
@@ -14,6 +16,21 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot' 
+apply plugin: 'com.eriwen.gradle.js'
+
+combineJs {
+    source = files("src/main/resources/static/js")
+    dest = file("build/resources/chores.js")
+}
+
+minifyJs {
+    source = combineJs
+    dest = file("${buildDir}/resources/chores.min.js")
+    sourceMap = file("build/all.sourcemap.json")
+    closure {
+        warningLevel = 'QUIET'
+    }
+}
 
 jar {
     baseName = 'spring-chores'
@@ -26,7 +43,6 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
