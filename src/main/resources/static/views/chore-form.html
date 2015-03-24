@@ -27,7 +27,7 @@
    			<label for="description">Next Due</label>
    			<div class="input-group due-date">
    				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-   				<input type="text" ng-model="nextDue" class="form-control" placeholder="Never" readonly>
+   				<input type="text" ng-model="nextDue" class="form-control" placeholder="Never" readonly datepicker-popup="EEEE MMMM dd, yyyy" show-button-bar="false" datepicker-options="{ 'show-weeks': false }">
    				<span class="input-group-btn">
 					<button class="btn btn-default due-never"><span class="glyphicon glyphicon-ban-circle"></span></button>
 					<button class="btn btn-default due-plus-day">+ Day</button>
